@@ -1,22 +1,10 @@
 :root {
   --white: #fff;
-  --gray-100: #e1e1e6;
   --gray-300: #c4c4cc;
   --gray-400: #8d8d99;
-  --gray-600: #323238;
-  --gray-700: #29292e;
   --gray-800: #202024;
   --gray-900: #121214;
-
-  --orange-300: #f6b21c;
   --orange-500: #f7961e;
-
-  --red-500: #f75a68;
-}
-
-:focus {
-  outline: transparent; /* removes standard focus */
-  box-shadow: 0 0 0 2px var(--orange-500);
 }
 
 * {
@@ -52,7 +40,7 @@ button {
   min-height: 100vh;
 }
 
-.wrapper a {
+.wrapper .create-note a {
   width: 240px;
   margin-left: auto;
   margin-bottom: 48px;
@@ -88,6 +76,19 @@ button {
   padding: 1.25rem 0;
 
   gap: 1rem;
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  background-color: var(--gray-800);
+  color: var(--gray-300);
+  margin: 0;
+  text-decoration: none;
+}
+
+.header a:hover {
+  color: var(--orange-500);
 }
 
 .notes-list {
@@ -165,4 +166,46 @@ textarea:focus {
 .save:hover {
   background: var(--orange-500);
   color: var(--white);
+}
+
+.editor {
+  box-sizing: border-box;
+  border: 1px solid var(--orange-500);
+  cursor: text;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 2em;
+  background: var(--gray-800);
+}
+
+.editor :global(.public-DraftEditor-content) {
+  min-height: 140px;
+}
+
+.back-button {
+  margin-bottom: 16px;
+}
+
+.back-button button {
+  background: transparent;
+  border: 0;
+  color: var(--gray-400);
+  cursor: pointer;
+  min-width: 110px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.1s, background-color 0.1s;
+}
+
+.back-button button:hover {
+  color: var(--orange-500);
+  border: 0;
+}
+
+.wrapper .editor a {
+  background-color: var(--gray-800);
+  color: var(--orange-500);
+  margin: 0;
 }

@@ -14,7 +14,6 @@ export function NoteList({ notes }: NoteListProps) {
   return (
     <div className='notes-list'>
       {notes.map((note) => {
-        console.log(note)
         return (
           <NoteItem
             key={note.id}

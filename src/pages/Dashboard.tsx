@@ -4,6 +4,7 @@ import { NoteList } from "../components/NoteList";
 import api from "../services/api";
 
 import "../global.css";
+import { hash } from "../App";
 
 export interface Note {
   id: string;
@@ -11,7 +12,6 @@ export interface Note {
 }
 
 export function Dashboard() {
-  const hash = "419ddd5d26e49e9d69d7cf7699a8b3ac";
 
   const [notes, setNotes] = useState<Note[]>([]);
 

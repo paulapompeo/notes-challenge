@@ -1,35 +1,65 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
+import { FiArrowLeft } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
+import { hash } from "../App";
+import { NoteBox } from "../components/NoteBox";
 import api from "../services/api";
 
 export function CreateNote() {
+  const [noteText, setNoteText] = useState("");
 
-  const [noteText, setNoteText] = useState('');
+  const history = useHistory();
 
-  const hash = "419ddd5d26e49e9d69d7cf7699a8b3ac";
+  useEffect(() => {
+    setNoteText(localStorage.getItem("inputValue")!);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const note = {
+        body: noteText,
+      };
+
+      if (noteText.trim().length > 0) {
+        api.post(`${hash}/notes`, note);
+      }
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [noteText]);
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setNoteText(event.target.value);
+    localStorage.setItem("inputValue", event.target.value);
   };
 
   const handleSaveClick = () => {
     if (noteText.trim().length > 0) {
       const note = {
-        body: noteText
-      }
+        body: noteText,
+      };
 
-      api.post(`${hash}/notes`, note)
-      setNoteText('');
+      api.post(`${hash}/notes`, note);
+      setNoteText("");
+      localStorage.clear();
+      handleGoBack();
     }
   };
 
+  const handleGoBack = () => {
+    history.goBack();
+  };
+
   return (
-    <div className='wrapper'>
-      <textarea
-        placeholder='Type your note here...'
-        value={noteText}
-        onChange={handleChange}
-      ></textarea>
-      <button className='save' onClick={handleSaveClick}>
+    <div className="wrapper">
+      <div className="back-button">
+        <button onClick={handleGoBack}>
+          <FiArrowLeft size="1.3em" />
+          Dashboard
+        </button>
+      </div>
+      <NoteBox noteText={noteText} handleChange={handleChange} />
+      <button className="save" onClick={handleSaveClick}>
         Save
       </button>
     </div>
