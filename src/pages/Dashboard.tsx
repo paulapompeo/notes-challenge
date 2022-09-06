@@ -19,6 +19,8 @@ export function Dashboard() {
     api.get(`${hash}/notes`).then((res) => {
       setNotes(res.data);
     });
+
+    localStorage.clear();
   }, []);
 
   return (

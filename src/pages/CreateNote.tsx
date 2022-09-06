@@ -22,7 +22,6 @@ export function CreateNote() {
 
       if (noteText.trim().length > 0) {
         api.post(`${hash}/notes`, note);
-        localStorage.clear();
       }
     }, 3000);
 
@@ -42,7 +41,6 @@ export function CreateNote() {
 
       api.post(`${hash}/notes`, note);
       setNoteText("");
-      localStorage.clear();
       handleGoBack();
     }
   };
