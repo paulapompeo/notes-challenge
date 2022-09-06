@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# Preview
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+<h1 align="center">
+    <img src="https://ik.imagekit.io/fknziezxge/Captura_de_Tela_2022-09-06_a%CC%80s_09.48.20_M7ZCuHxnm.png?ik-sdk-version=javascript-1.4.3&updatedAt=1662450709022">
+</h1>
+
+<h1 align="center">
+    <img src="https://ik.imagekit.io/fknziezxge/Captura_de_Tela_2022-09-06_a%CC%80s_09.48.25_Q_vFlTQlV.png?ik-sdk-version=javascript-1.4.3&updatedAt=1662450721843">
+</h1>
+
+<h1 align="center">
+    <img src="https://ik.imagekit.io/fknziezxge/Captura_de_Tela_2022-09-06_a%CC%80s_09.48.49_eAKsG5Ntcu.png?ik-sdk-version=javascript-1.4.3&updatedAt=1662450735959">
+</h1>
 
 ## Available Scripts
 
