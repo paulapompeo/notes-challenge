@@ -41,6 +41,7 @@ export function EditNote() {
 
       if (noteToBeEdited.body.trim().length > 0) {
         api.put(`${hash}/notes/${id}`, note);
+        localStorage.clear();
       }
     }, 3000);
 

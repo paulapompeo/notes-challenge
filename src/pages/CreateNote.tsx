@@ -22,6 +22,7 @@ export function CreateNote() {
 
       if (noteText.trim().length > 0) {
         api.post(`${hash}/notes`, note);
+        localStorage.clear();
       }
     }, 3000);
 
